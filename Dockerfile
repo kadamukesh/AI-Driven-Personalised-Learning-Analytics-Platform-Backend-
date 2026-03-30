@@ -2,11 +2,12 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Copy full project
 COPY . .
 
-# Build jar inside Docker
+# ✅ FIX: give execute permission
+RUN chmod +x mvnw
+
+# Build jar
 RUN ./mvnw clean package -DskipTests
 
-# Run jar
 ENTRYPOINT ["java", "-jar", "target/*.jar"]
