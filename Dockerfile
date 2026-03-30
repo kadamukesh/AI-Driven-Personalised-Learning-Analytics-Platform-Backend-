@@ -2,8 +2,11 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+# Copy full project
+COPY . .
 
-EXPOSE 8080
+# Build jar inside Docker
+RUN ./mvnw clean package -DskipTests
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run jar
+ENTRYPOINT ["java", "-jar", "target/*.jar"]
