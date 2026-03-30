@@ -3,9 +3,9 @@ spring:
     name: adpl
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/capstone_db}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
-    password: ${SPRING_DATASOURCE_PASSWORD:root}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -35,9 +35,9 @@ server:
 
 app:
   jwt:
-    secret: ${APP_JWT_SECRET:dGhpc2lzYXZlcnlsb25nc2VjcmV0a2V5Zm9yand0YXV0aGVudGljYXRpb25wcm9qZWN0MjAyNA==}
-    expiration: 86400000  # 24 hours in milliseconds
-    refresh-expiration: 604800000  # 7 days in milliseconds
+    secret: ${APP_JWT_SECRET}
+    expiration: 86400000
+    refresh-expiration: 604800000
 
 logging:
   level:
@@ -45,5 +45,4 @@ logging:
     org.springframework.security: INFO
 
 google:
-  client-id: ${GOOGLE_CLIENT_ID:250907932405-gp1s5q8jqssd06ka7icld49ujivfmt76.apps.googleusercontent.com}
-
+  client-id: ${GOOGLE_CLIENT_ID}
